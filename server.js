@@ -7,17 +7,18 @@ client.on('ready', () => {
 });
 
 
-var nias = 135;
 
 
 client.on('messageCreate', (message) => {
 
 
-  if (message.content === "Nibbas"){
-  message.reply({content: 'biba'})
-    
-  sayHello.execute();
-  }
+ 
+ let arrayOfStrings = message.content.split(' ');
+  var args =[];
+  
+  console.log(arrayOfStrings[0]);
+ // sayHello.execute(message,args, message.content, client);
+ 
   
 });
 
