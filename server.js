@@ -14,9 +14,16 @@ client.on('messageCreate', (message) => {
 
  
  let arrayOfStrings = message.content.split(' ');
-  var args =[];
+  
   
   console.log(arrayOfStrings[0]);
+  
+  if (arrayOfStrings[0] === 'play') {
+    let args =[]; 
+    args[0] = arrayOfStrings[1] //LAZY and i don't know other solutions rn
+    
+  }
+  
  // sayHello.execute(message,args, message.content, client);
  
   
