@@ -14,7 +14,9 @@
     "point-of-view": "^4.14.0",
     "discord.js": "^13.2.0",
     "node-fetch": "^3.0.0",
-    "events": "^3.3.0"
+    "events": "^3.3.0",
+    "ytdl-core": "^4.9.1",
+    "yt-search": "^2.10.2"
   },
   "engines": {
     "node": "16.x"
