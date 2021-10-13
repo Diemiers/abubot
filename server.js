@@ -1,32 +1,37 @@
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS,Intents.FLAGS.GUILD_MESSAGES] });
-var sayHello = require('./dady.js');
-
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
-});
 
 
-
-
-client.on('messageCreate', (message) => {
-
-
+const Discord = require('discord.js');
+const client = new Discord.Client();
  
- let arrayOfStrings = message.content.split(' ');
-  
-  
-  console.log(arrayOfStrings[0]);
-  
-  if (arrayOfStrings[0] === 'play') {
-    let args =[]; 
-    args[0] = arrayOfStrings[1] //LAZY and i don't know other solutions rn
-    
-  }
-  
- // sayHello.execute(message,args, message.content, client);
+const prefix = '-';
  
-  
+const fs = require('fs');
+ 
+client.commands = new Discord.Collection();
+ 
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+for(const file of commandFiles){
+    const command = require(`./commands/${file}`);
+ 
+    client.commands.set(command.name, command);
+}
+ 
+ 
+client.once('ready', () => {
+    console.log('Codelyon is online!');
 });
-
+ 
+client.on('message', message =>{
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+ 
+    const args = message.content.slice(prefix.length).split(/ +/);
+    const command = args.shift().toLowerCase();
+ 
+    if(command === 'ping'){
+        client.commands.get('ping').execute(message, args);
+    } 
+});
+ 
 client.login('ODk3OTE2NTk3MjMzMTQ3OTU0.YWcn_w.MwlxFkGw2cYqW4Illja5THwOUIQ');
+ 
+ 
