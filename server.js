@@ -2,8 +2,9 @@
 * This is the main Node.js server script for your project
 * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
 */
-
+const EventEmitter = require('events');
 const path = require("path");
+const { Client, Intents } = require('discord.js');
 
 // Require the fastify framework and instantiate it
 const fastify = require("fastify")({
