@@ -19,20 +19,17 @@ client.on('messageCreate',  (message) => {
 let args = message.content.split(" ");
 
 
-  
-
+if (args[0]=== "!play") {
   let args1 = [];
   let i
-  
   for (i = 1; i < args.length; i++) {
     console.log(args[i])
     args1[i] = args[i];
         }
-  
-  let comma = require('./commands/command.js')
-
+let comma = require('./commands/command.js')
 comma.execute(message,args1,args[0],client);
-
+}
+  
 });
 
 

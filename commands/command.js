@@ -16,10 +16,10 @@ module.exports = {
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
   
         const voice_channel = message.member.voice.channel;
-        if (!voice_channel) return message.channel.send('You need to be in a channel to execute this command!');
+        if (!voice_channel) return message.channel.send('Ты чё даун?');
         const permissions = voice_channel.permissionsFor(message.client.user);
-        if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins');
-        if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
+        if (!permissions.has('CONNECT')) return message.channel.send('ладно');
+        if (!permissions.has('SPEAK')) return message.channel.send('ладно');
 
 
     
@@ -28,7 +28,7 @@ module.exports = {
         //This is our server queue. We are getting this server queue from the global queue.
      
         //If the user has used the play command
-        if (cmd === 'play'){
+        if (cmd === '!play'){
             if (!args.length) return message.channel.send('You need to send the second argument!');
             let song = {};
 
@@ -47,7 +47,7 @@ module.exports = {
                 if (video){
                     song = { title: video.title, url: video.url }
                 } else {
-                     message.channel.send('Error finding video.');
+                     message.channel.send('Иди нахуй дебил');
                 }
             }
 
@@ -57,10 +57,9 @@ module.exports = {
 	adapterCreator: voice_channel.guild.voiceAdapterCreator,
 });
 
-
+console.log(args.join(' '));
 const player = createAudioPlayer();
 const stream = ytdl(song.url, { filter: 'audioonly' });         
-console.log(stream);
 const resource = createAudioResource(stream);
 player.play(resource);       
 const subscription = connection.subscribe(player);
