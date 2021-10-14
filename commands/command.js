@@ -60,6 +60,7 @@ module.exports = {
 
 const player = createAudioPlayer();
 const stream = ytdl(song.url, { filter: 'audioonly' });         
+console.log(stream);
 const resource = createAudioResource(stream);
 player.play(resource);       
 const subscription = connection.subscribe(player);
