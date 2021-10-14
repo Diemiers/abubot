@@ -19,8 +19,9 @@
     "point-of-view": "^4.14.0",
     "yt-search": "^2.10.2",
     "ytdl-core": "^4.9.1",
-    "@discordjs/voice": "^0.6.0"
-  
+    "@discordjs/voice": "^0.6.0",
+    "ffmpeg-static": "^4.4.0",
+    "opusscript": "^0.0.8"
   },
   "engines": {
     "node": "16.x"
