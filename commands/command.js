@@ -1,7 +1,8 @@
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
 const { joinVoiceChannel } = require('@discordjs/voice');
-      
+const {createAudioPlayer} = require('@discordjs/voice');
+const {createAudioResource} = require('@discordjs/voice');
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 
 module.exports = {
@@ -56,10 +57,15 @@ module.exports = {
 	adapterCreator: voice_channel.guild.voiceAdapterCreator,
 });
 
+
+const player = createAudioPlayer();
+const stream = ytdl(song.url, { filter: 'audioonly' });         
+const resource = createAudioResource(stream);
+player.play(resource);       
+const subscription = connection.subscribe(player);
           
-  const stream = ytdl(song.url, { filter: 'audioonly' });
-console.log(stream);
-  const subscription = connection.subscribe(stream);
+
+          
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
   
    
