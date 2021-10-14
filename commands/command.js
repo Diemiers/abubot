@@ -3,7 +3,6 @@ const ytSearch = require('yt-search');
 const { joinVoiceChannel } = require('@discordjs/voice');
       
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
-const queue = new Map();
 
 module.exports = {
     name: 'play',
@@ -26,8 +25,7 @@ module.exports = {
             
             
         //This is our server queue. We are getting this server queue from the global queue.
-        const server_queue = queue.get(message.guild.id);
-
+     
         //If the user has used the play command
         if (cmd === 'play'){
             if (!args.length) return message.channel.send('You need to send the second argument!');
@@ -57,52 +55,19 @@ module.exports = {
 	guildId: voice_channel.guild.id,
 	adapterCreator: voice_channel.guild.voiceAdapterCreator,
 });
+
           
+  const stream = ytdl(song.url, { filter: 'audioonly' });
+console.log(stream);
+  const subscription = connection.subscribe(stream);
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
-            if (!server_queue){
-
-       
-                
-                //Add our key and value pair into the global queue. We then use this to get our server queue.
-                queue.set(message.guild.id, queue_constructor);
-                queue_constructor.songs.push(song);
-    
-                //Establish a connection and play the song with the vide_player function.
-                try {
-                  
-
-                  
-                    queue_constructor.connection = connection;
-                    video_player(message.guild, queue_constructor.songs[0]);
-                } catch (err) {
-                    queue.delete(message.guild.id);
-                    message.channel.send('There was an error connecting!');
-                    throw err;
-                }
-            } else{
-                server_queue.songs.push(song);
-                return message.channel.send(`👍 **${song.title}** added to queue!`);
-            }
-        }
-
-        else if(cmd === 'skip') skip_song(message, server_queue);
-        else if(cmd === 'stop') stop_song(message, server_queue);
-    }
+  
+   
     
 }
-
-
-
-const skip_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
-    if(!server_queue){
-        return message.channel.send(`There are no songs in queue 😔`);
-    }
-    server_queue.connection.dispatcher.end();
+}
 }
 
-const stop_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
-    server_queue.songs = [];
-    server_queue.connection.dispatcher.end();
-}
+// subscription could be undefined if the connection is destroyed!
+
+  
