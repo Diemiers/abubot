@@ -1,5 +1,5 @@
 const { Client, Intents } = require('discord.js');
-const client = new Client();
+const client = new Client({ intents: [Intents.FLAGS.GUILDS,Intents.FLAGS.GUILDS_MESSAGES] });
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -7,7 +7,7 @@ client.on('ready', () => {
 
 client.on('message', (message) => {
 
-  console.log()
+  console.log(message)
   
 });
 
