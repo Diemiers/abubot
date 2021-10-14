@@ -15,8 +15,10 @@ client.on('ready', () => {
 
 client.on('messageCreate',  (message) => {
 
-  console.log("Interacted");
+  
+let args = message.content.split(" ");
 
+console.log(message.content);
 
 });
 
