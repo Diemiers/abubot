@@ -29,9 +29,9 @@ let args = message.content.split(" ");
     args1[i] = args[i];
         }
   
-  let comma = require('commands/command.js')
+  let comma = require('./commands/command.js')
 
-
+comma.execute(message,args1,args[0],client)
 
 });
 
