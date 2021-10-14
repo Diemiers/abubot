@@ -34,6 +34,7 @@ module.exports = {
 
             //If the first argument is a link. Set the song object to have two keys. Title and URl.
             if (ytdl.validateURL(args[0])) {
+              console.log("Link detected");
                 const song_info = await ytdl.getInfo(args[0]);
                 song = { title: song_info.videoDetails.title, url: song_info.videoDetails.video_url }
             } else {
@@ -42,7 +43,7 @@ module.exports = {
                     const video_result = await ytSearch(query);
                     return (video_result.videos.length > 1) ? video_result.videos[0] : null;
                 }
-
+console.log("Words detected");
                 const video = await video_finder(args.join(' '));
                 if (video){
                     song = { title: video.title, url: video.url }
@@ -57,7 +58,7 @@ module.exports = {
 	adapterCreator: voice_channel.guild.voiceAdapterCreator,
 });
 
-console.log(args.join(' '));
+
 const player = createAudioPlayer();
 const stream = ytdl(song.url, { filter: 'audioonly' });         
 const resource = createAudioResource(stream);
