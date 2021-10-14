@@ -18,7 +18,20 @@ client.on('messageCreate',  (message) => {
   
 let args = message.content.split(" ");
 
-console.log(message.content);
+
+  
+
+  let args1 = [];
+  let i
+  
+  for (i = 1; i < args.length; i++) {
+    console.log(args[i])
+    args1[i] = args[i];
+        }
+  
+  let comma = require('commands/command.js')
+
+
 
 });
 
