@@ -19,7 +19,7 @@ client.on('messageCreate',  (message) => {
 let args = message.content.split(" ");
 
 
-if (args[0]=== "!play") {
+if (args[0]=== "-play") {
   let args1 = [];
   let i
   for (i = 1; i < args.length; i++) {

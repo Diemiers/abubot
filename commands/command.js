@@ -28,7 +28,7 @@ module.exports = {
         //This is our server queue. We are getting this server queue from the global queue.
      
         //If the user has used the play command
-        if (cmd === '!play'){
+        if (cmd === '-play'){
             if (!args.length) return message.channel.send('You need to send the second argument!');
             let song = {};
 
@@ -64,8 +64,8 @@ const resource = createAudioResource(stream);
 player.play(resource);       
 const subscription = connection.subscribe(player);
           
-message.channel.send("**"+song.title+"**"+" сейчас играет");
-          
+message.channel.send(song.url);
+       
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
   
    
