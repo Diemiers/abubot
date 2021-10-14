@@ -7,16 +7,18 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "@discordjs/rest": "^0.1.0-canary.0",
+    "discord-api-types": "^0.23.1",
+    "discord.js": "^13.2.0",
+    "events": "^3.3.0",
     "fastify": "^3.14.1",
     "fastify-formbody": "^5.0.0",
     "fastify-static": "^4.0.0",
     "handlebars": "^4.7.7",
-    "point-of-view": "^4.14.0",
-    "discord.js": "^13.2.0",
     "node-fetch": "^3.0.0",
-    "events": "^3.3.0",
-    "ytdl-core": "^4.9.1",
-    "yt-search": "^2.10.2"
+    "point-of-view": "^4.14.0",
+    "yt-search": "^2.10.2",
+    "ytdl-core": "^4.9.1"
   },
   "engines": {
     "node": "16.x"
