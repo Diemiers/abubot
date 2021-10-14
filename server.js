@@ -1,11 +1,14 @@
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS,Intents.FLAGS.GUILDS_MESSAGES] });
+const Discord =require("discord.js");
+
+const intents = new Discord.Intents(8589934591);
+const client = new Discord.Client({intents});
+
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', (message) => {
+client.on('messageCreate', (message) => {
 
   console.log(message)
   
