@@ -4,6 +4,8 @@ const { joinVoiceChannel } = require('@discordjs/voice');
 const {createAudioPlayer} = require('@discordjs/voice');
 const {createAudioResource} = require('@discordjs/voice');
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
+let index = 0;
+
 
 module.exports = {
     name: 'play',
@@ -59,14 +61,14 @@ console.log("Words detected");
 	adapterCreator: voice_channel.guild.voiceAdapterCreator,
 });
 
-
+index = index+1;
 const player = createAudioPlayer();
 const stream = ytdl(song.url, { filter: 'audioonly' });         
 const resource = createAudioResource(stream);
 player.play(resource);       
 const subscription = connection.subscribe(player);
           
-message.channel.send("**HALAL ACCEPTED** "+ song.url);
+message.channel.send("**HALAL ACCEPTED** "+ song.url + ' **'+ index + '** CURRENT INDEX' );
        
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
   
