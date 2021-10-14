@@ -31,7 +31,7 @@ let args = message.content.split(" ");
   
   let comma = require('./commands/command.js')
 
-comma.execute(message,args1,args[0],client)
+comma.execute(message,args1,args[0],client);
 
 });
 
