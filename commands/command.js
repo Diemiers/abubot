@@ -64,7 +64,7 @@ const resource = createAudioResource(stream);
 player.play(resource);       
 const subscription = connection.subscribe(player);
           
-
+message.channel.send("**"+song.title+"**"+" сейчас играет");
           
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
   
