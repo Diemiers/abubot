@@ -1,6 +1,7 @@
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
-
+const { joinVoiceChannel } = require('@discordjs/voice');
+      
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 const queue = new Map();
 
@@ -13,8 +14,7 @@ module.exports = {
 
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
-      const { joinVoiceChannel } = require('@discordjs/voice');
-      
+  
         const voice_channel = message.member.voice.channel;
         if (!voice_channel) return message.channel.send('You need to be in a channel to execute this command!');
         const permissions = voice_channel.permissionsFor(message.client.user);
@@ -64,7 +64,13 @@ module.exports = {
     
                 //Establish a connection and play the song with the vide_player function.
                 try {
-                    const connection = await voice_channel.join();
+                  
+                  const connection = joinVoiceChannel({
+	channelId: voice_channel.id,
+	guildId: voice_channel.guild.id,
+	adapterCreator: voice_channel.guild.voiceAdapterCreator,
+});
+                  
                     queue_constructor.connection = connection;
                     video_player(message.guild, queue_constructor.songs[0]);
                 } catch (err) {
