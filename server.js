@@ -23,8 +23,8 @@ if (args[0]=== "-play") {
   let args1 = [];
   let i
   for (i = 1; i < args.length; i++) {
-    console.log(args[i],i)
-    args1[i] = args[i];
+    console.log(args[i],i-1)
+    args1[i-1] = args[i];
         }
 let comma = require('./commands/command.js')
 comma.execute(message,args1,args[0],client);

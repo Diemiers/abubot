@@ -33,6 +33,7 @@ module.exports = {
             let song = {};
 
             //If the first argument is a link. Set the song object to have two keys. Title and URl.
+          console.log(args[0],"Args 0");
             if (ytdl.validateURL(args[0])) {
               console.log("Link detected");
                 const song_info = await ytdl.getInfo(args[0]);
