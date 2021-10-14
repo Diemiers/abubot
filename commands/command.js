@@ -21,6 +21,14 @@ module.exports = {
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
 
+  const connection = joinVoiceChannel({
+	channelId: voice_channel.id,
+	guildId: voice_channel.guild.id,
+	adapterCreator: voice_channel.guild.voiceAdapterCreator,
+});
+    
+            
+            
         //This is our server queue. We are getting this server queue from the global queue.
         const server_queue = queue.get(message.guild.id);
 
@@ -65,11 +73,7 @@ module.exports = {
                 //Establish a connection and play the song with the vide_player function.
                 try {
                   
-                  const connection = joinVoiceChannel({
-	channelId: voice_channel.id,
-	guildId: voice_channel.guild.id,
-	adapterCreator: voice_channel.guild.voiceAdapterCreator,
-});
+
                   
                     queue_constructor.connection = connection;
                     video_player(message.guild, queue_constructor.songs[0]);
@@ -101,7 +105,7 @@ const video_player = async (guild, song) => {
     }
     const stream = ytdl(song.url, { filter: 'audioonly' });
   
-  const subscription = song_queue.connection.subscribe(stream);
+  const subscription = song_queue. .subscribe(stream);
 
 // subscription could be undefined if the connection is destroyed!
 
