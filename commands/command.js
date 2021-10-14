@@ -21,11 +21,7 @@ module.exports = {
         if (!permissions.has('CONNECT')) return message.channel.send('You dont have the correct permissins');
         if (!permissions.has('SPEAK')) return message.channel.send('You dont have the correct permissins');
 
-  const connection = joinVoiceChannel({
-	channelId: voice_channel.id,
-	guildId: voice_channel.guild.id,
-	adapterCreator: voice_channel.guild.voiceAdapterCreator,
-});
+
     
             
             
@@ -56,15 +52,16 @@ module.exports = {
                 }
             }
 
+            const connection = joinVoiceChannel({
+	channelId: voice_channel.id,
+	guildId: voice_channel.guild.id,
+	adapterCreator: voice_channel.guild.voiceAdapterCreator,
+});
+          
             //If the server queue does not exist (which doesn't for the first video queued) then create a constructor to be added to our global queue.
             if (!server_queue){
 
-                const queue_constructor = {
-                    voice_channel: voice_channel,
-                    text_channel: message.channel,
-                    connection: null,
-                    songs: []
-                }
+       
                 
                 //Add our key and value pair into the global queue. We then use this to get our server queue.
                 queue.set(message.guild.id, queue_constructor);
@@ -94,29 +91,7 @@ module.exports = {
     
 }
 
-const video_player = async (guild, song) => {
-    const song_queue = queue.get(guild.id);
 
-    //If no song is left in the server queue. Leave the voice channel and delete the key and value pair from the global queue.
-    if (!song) {
-        song_queue.voice_channel.leave();
-        queue.delete(guild.id);
-        return;
-    }
-    const stream = ytdl(song.url, { filter: 'audioonly' });
-  
-  const subscription = song_queue. .subscribe(stream);
-
-// subscription could be undefined if the connection is destroyed!
-
-  
-    song_queue.connection.play(stream, { seek: 0, volume: 0.5 })
-    .on('finish', () => {
-        song_queue.songs.shift();
-        video_player(guild, song_queue.songs[0]);
-    });
-    await song_queue.text_channel.send(`🎶 Now playing **${song.title}**`)
-}
 
 const skip_song = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
