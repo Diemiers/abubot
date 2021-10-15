@@ -7,6 +7,7 @@ const {createAudioResource} = require('@discordjs/voice');
 let index = 0;
 
 
+
 module.exports = {
     name: 'play',
     aliases: ['skip', 'stop'], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
