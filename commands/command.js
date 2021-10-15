@@ -6,6 +6,8 @@ const {createAudioResource} = require('@discordjs/voice');
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 let index = 0;
 
+let globalqueque = [];
+
 
 
 module.exports = {
@@ -62,6 +64,10 @@ console.log("Words detected");
 	adapterCreator: voice_channel.guild.voiceAdapterCreator,
 });
 
+          let queque = globalqueque[voice_channel.guild.id]
+       if (!queque){
+         console.log("Очереди нету");
+       }
 index = index+1;
 const player = createAudioPlayer();
 const stream = ytdl(song.url, { filter: 'audioonly' });         
@@ -77,6 +83,14 @@ message.channel.send("**HALAL ACCEPTED** "+ song.url + ' **'+ index + '** CURREN
     
 }
 }
+}
+
+
+function createqueque(globalqueque,guildid) {
+ 
+  let queque = [];
+  
+  
 }
 
 // subscription could be undefined if the connection is destroyed!
