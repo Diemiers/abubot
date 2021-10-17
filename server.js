@@ -10,12 +10,14 @@ console.log(Intents.FLAGS.GUILD_MESSAGES)
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 
+   bot.user.setUsername("MyNewUsername");
   
 });
 
 client.on('messageCreate',  (message) => {
 
   
+
 let args = message.content.split(" ");
 
 
