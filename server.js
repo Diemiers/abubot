@@ -7,12 +7,37 @@ const client = new Client({ intents: [32509]});
 console.log(Intents.FLAGS.GUILDS)
 console.log(Intents.FLAGS.GUILD_MESSAGES)
 
+
 client.on('ready', () => {
+
+  var i = 1;                  //  set your counter to 1
+
+  
+  const names = ["Abu Navlniy","Bin Ladin"."EL"]
+  
+function myLoop() {         //  create a loop function
+  setTimeout(function() {   //  call a 3s setTimeout when the loop is called
+    console.log('hello');   //  your code here
+       //  if the counter < 10, call the loop function
+      
+      i = i+1;
+    
+    
+    myLoop();             //  ..  again which will trigger another 
+                   //  ..  setTimeout()
+  }, 3000)
+}
+
+myLoop(); 
+  
+  
   console.log(`Logged in as ${client.user.tag}!`);
 
-   bot.user.setUsername("MyNewUsername");
-  
 });
+
+
+ 
+
 
 client.on('messageCreate',  (message) => {
 
