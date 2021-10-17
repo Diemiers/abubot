@@ -10,22 +10,26 @@ console.log(Intents.FLAGS.GUILD_MESSAGES)
 
 client.on('ready', () => {
 
-  var i = 1;                  //  set your counter to 1
+  var i = -1;                  //  set your counter to 1
 
   
-  const names = ["Abu Navlniy","Bin Ladin"."EL"]
+  const names = ["Abu Navlniy","Bin Ladin","El Travomano","Doka2Fan","Saddam Hussein"]
   
 function myLoop() {         //  create a loop function
   setTimeout(function() {   //  call a 3s setTimeout when the loop is called
-    console.log('hello');   //  your code here
+      //  your code here
        //  if the counter < 10, call the loop function
       
       i = i+1;
+    console.log(names[i]); 
+     client.user.setUsername(names[i]);
     
-    
+    if (i === names.length-1){   
+       i = -1;
+    }
     myLoop();             //  ..  again which will trigger another 
                    //  ..  setTimeout()
-  }, 3000)
+  }, 6000)
 }
 
 myLoop(); 
