@@ -53,7 +53,9 @@ if (args[0]==="-msg"){
 } 
  
   
-if (args[0] === "-sus"){
+  
+  
+if ((args[0] === "-sus")  &&  can   ){
   
     var i = -1;                 
   const names = ["Abu Navlniy","Bin Ladin","El Travomano","Doka2Fan","Saddam Hussein"]
@@ -62,8 +64,8 @@ function myLoop() {
   setTimeout(function() {   
       i = i+1;
     console.log(names[i]); 
-     message.guild.member(897916597233147954).setNickname(names[i]);
-    if (i === names.length-1){   
+    message.guild.me.setNickname(names[i])
+    if ((i === names.length-1) ){   
        i = -1;
     }
     myLoop();          
