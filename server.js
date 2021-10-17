@@ -68,7 +68,7 @@ function myLoop() {
        i = -1;
     }
     myLoop();          
-  }, 5000)
+  }, 15000)
 }
 myLoop(); 
   
