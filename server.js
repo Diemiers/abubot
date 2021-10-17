@@ -30,6 +30,21 @@ let comma = require('./commands/command.js')
 comma.execute(message,args1,args[0],client);
 }
   
+if (args[0]==="-msg"){
+    let args1 = [];
+  let i
+  for (i = 1; i < args.length; i++) {
+    console.log(args[i],i-1)
+    args1[i-1] = args[i];
+    
+    
+        }
+   message.channel.send(args1.join(" "));
+  
+  
+  
+} 
+  
 });
 
 
