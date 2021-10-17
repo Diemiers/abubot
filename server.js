@@ -40,7 +40,7 @@ if (args[0]==="-msg"){
     
         }
    message.channel.send(args1.join(" "));
-  
+  message.delete();
   
   
 } 
