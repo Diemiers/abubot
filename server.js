@@ -54,11 +54,10 @@ if (args[0]==="-msg"){
  
   
   
-  
 if ((args[0] === "-sus")  &&  can   ){
-  
+  can = false;
     var i = -1;                 
-  const names = ["Abu Navlniy","Bin Ladin","El Travomano","Doka2Fan","Saddam Hussein"]
+  const names = ["Abu Navalniy","Bin Ladin","El Travomano","Doka2Fan","Saddam Hussein"]
    
 function myLoop() {        
   setTimeout(function() {   
@@ -69,7 +68,7 @@ function myLoop() {
        i = -1;
     }
     myLoop();          
-  }, 3000)
+  }, 5000)
 }
 myLoop(); 
   
