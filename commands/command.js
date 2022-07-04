@@ -1,3 +1,5 @@
+
+console.log("Launched command")
 const ytdl = require('ytdl-core');
 const ytSearch = require('yt-search');
 const { joinVoiceChannel } = require('@discordjs/voice');

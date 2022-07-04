@@ -8,23 +8,25 @@
   },
   "dependencies": {
     "@discordjs/rest": "^0.1.0-canary.0",
+    "@discordjs/voice": "^0.6.0",
     "discord-api-types": "^0.23.1",
     "discord.js": "^13.2.0",
+    "ejs": "^3.1.8",
     "events": "^3.3.0",
+    "express": "^4.18.1",
     "fastify": "^3.14.1",
     "fastify-formbody": "^5.0.0",
     "fastify-static": "^4.0.0",
+    "ffmpeg-static": "^4.4.0",
     "handlebars": "^4.7.7",
     "node-fetch": "^3.0.0",
     "point-of-view": "^4.14.0",
+    "tweetnacl": "^1.0.3",
     "yt-search": "^2.10.2",
-    "ytdl-core": "^4.9.1",
-    "@discordjs/voice": "^0.6.0",
-    "ffmpeg-static": "^4.4.0",
-    "tweetnacl": "^1.0.3"
+    "ytdl-core": "^4.9.1"
   },
   "engines": {
-    "node": "16.x"
+    "node": "15.x"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/glitch-hello-node"

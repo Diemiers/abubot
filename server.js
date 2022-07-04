@@ -1,9 +1,14 @@
 
 
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [32509]});
+//const { Client, Intents } = require('discord.js');
+//const client = new Client({ intents: [32509]});
 
-
+var msgal = require("./websitebackend.js");
+msgal();
+/*
+var msgal = require("./websitebackend.js");
+msgal();
+//[[
 console.log(Intents.FLAGS.GUILDS)
 console.log(Intents.FLAGS.GUILD_MESSAGES)
 
@@ -79,6 +84,9 @@ myLoop();
 
 
 
+//]]
+
+*/
 
 
 
@@ -94,8 +102,5 @@ myLoop();
 
 
 
-
-
-
-client.login('ODk3OTE2NTk3MjMzMTQ3OTU0.YWcn_w.MwlxFkGw2cYqW4Illja5THwOUIQ');
+//client.login('ODk3OTE2NTk3MjMzMTQ3OTU0.YWcn_w.MwlxFkGw2cYqW4Illja5THwOUIQ');
 
